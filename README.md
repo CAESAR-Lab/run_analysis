@@ -1,19 +1,19 @@
 # run_analysis
 Getting and Cleaning Data Course Project
 
-# 0 Get required data into a list
+## 0 Get required data into a list
   Download the compressed file ->
   Unzip the file ->
   Import TXT file via for loop
  
- # 1 Merges the training and the test sets to create one data set
- ## Use the rbind() function to merge observations
- ## Use cbind() function to merge features, y and subject ID
+## 1 Merges the training and the test sets to create one data set
+   Use the rbind() function to merge observations;
+   Use cbind() function to merge features, y and subject ID;
 
- # 2 Extracts only the measurements on the mean and standard deviation for each measurement
+# 2 Extracts only the measurements on the mean and standard deviation for each measurement
    Use the grepl() function to identify where the "mean" or "std" text appears in the features data;
    Use the grepl() function to identify the locations where the meanFrequency() text appears in the "features" data, these should be excluded;
-   Keep the two variables: "subject ID" and "y"
+   Keep the two variables: "subject ID" and "y";
 
 # 3 Uses descriptive activity names to name the activities in the data set
    activities <- c("WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING")
