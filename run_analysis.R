@@ -70,4 +70,3 @@ write.table(tidy_data_set,file=paste0(Output_Path,"/tidy_data_set.txt"),row.name
 #library(data.table)
 write.csv(tidy_data_set,file=paste0(Output_Path,"/tidy_data_set.csv"),row.names = FALSE)
 
-
