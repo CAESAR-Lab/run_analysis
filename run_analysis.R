@@ -70,7 +70,4 @@ write.table(tidy_data_set,file=paste0(Output_Path,"/tidy_data_set.txt"),row.name
 #library(data.table)
 write.csv(tidy_data_set,file=paste0(Output_Path,"/tidy_data_set.csv"),row.names = FALSE)
 
-##7 codebook
-# https://rubenarslan.github.io/codebook/articles/codebook_tutorial.html
-library(codebook)
-codebook_data <- codebook::bfi
+
