@@ -2,9 +2,9 @@
 Getting and Cleaning Data Course Project
 
 # 0 Get required data into a list
- # Download the compressed file 
- # Unzip the file
- # Import TXT file via for loop
+  Download the compressed file #
+  Unzip the file #
+  Import TXT file via for loop
  
  # 1 Merges the training and the test sets to create one data set
 ## Use the rbind() function to merge observations
