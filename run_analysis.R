@@ -4,7 +4,7 @@ rm(list=ls()) # removes all objects from the current workspace (R memory)
 library(dplyr)
 library(magrittr)
 
-## Get required data into a list
+##0 Get required data into a list
 Data_URL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 dest_file = "~/Downloads/HAR.zip"
 ex_dir = "~"
@@ -20,7 +20,7 @@ for (i in 1:length(File_Paths)) {
 names(df_list) <- df_names
 
 
-## Merges the training and the test sets to create one data set
+##1 Merges the training and the test sets to create one data set
 X <- rbind(df_list$X_train, df_list$X_test) # Use the rbind() function to merge observations
 y <- rbind(df_list$y_train, df_list$y_test) 
 subject <- rbind(df_list$subject_train, df_list$subject_test) 
@@ -28,7 +28,7 @@ df <- cbind(y, X) # Use cbind() function to merge features, y and subject ID
 df <- cbind(subject, df)
 
 
-## Extracts only the measurements on the mean and standard deviation for each measurement
+##2 Extracts only the measurements on the mean and standard deviation for each measurement
 feature_names <- df_list$features$V2
 has_mean_std <- feature_names %>%
   grepl(pattern = "mean|std") # Use the grepl() function to identify where the "mean" or "std" text appears in the features data
@@ -39,7 +39,7 @@ feature_selector <- c(TRUE, TRUE, feature_selector) # Keep the two variables: "s
 mean_std_df <- df[, feature_selector]
 
 
-## Uses descriptive activity names to name the activities in the data set
+##3 Uses descriptive activity names to name the activities in the data set
 activities <- c("WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING")
 for (i in 1:length(activities)) {
   mean_std_df[, 2][mean_std_df[, 2] == i] <- activities[i]
@@ -47,7 +47,7 @@ for (i in 1:length(activities)) {
 return(mean_std_df)
 
 
-## Appropriately labels the data set with descriptive variable names
+##4 Appropriately labels the data set with descriptive variable names
 feature_names <- df_list$features$V2
 has_mean_std <- feature_names %>%
   grepl(pattern = "mean()|std()")
@@ -59,12 +59,12 @@ names(mean_std_df) <- variable_names
 
 
 
-## From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
+##5 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
 tidy_data_set <- mean_std_df %>%
   group_by(subject, activity) %>%
   summarise_all(mean)
 
-## Export the table
+##6 Export the table
 Output_Path = setwd(getwd())
 write.table(tidy_data_set,file=paste0(Output_Path,"/tidy_data_set.txt"),row.names = FALSE)
 #library(data.table)
