@@ -6,7 +6,7 @@ library(magrittr)
 
 ##0 Get required data into a list
 Data_URL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-dest_file = "~/Downloads/HAR.zip"
+dest_file = "~/UCI HAR Dataset.zip"
 ex_dir = "~"
 download.file(Data_URL, destfile = dest_file) # Download the compressed file
 unzip(dest_file, exdir = ex_dir) # Unzip the file
