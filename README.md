@@ -1,6 +1,9 @@
 # run_analysis
 Getting and Cleaning Data Course Project
 
+Human Activity Recognition Using Smartphones Data Set
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
 ## 0 Get required data into a list
   Download the compressed file ->
   Unzip the file ->
