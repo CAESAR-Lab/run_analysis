@@ -31,7 +31,7 @@ df <- cbind(subject, df)
 ##2 Extracts only the measurements on the mean and standard deviation for each measurement
 feature_names <- df_list$features$V2
 has_mean_std <- feature_names %>%
-  grepl(pattern = "mean|std") # Use the grepl() function to identify where the "mean" or "std" text appears in the features data
+  grepl(pattern = "mean|std") # Use the grepl() function to identify where the "mean" or "std" text appears in the "features" data
 has_meanFreq <- feature_names %>%
   grepl(pattern = "meanFreq()") # Use the grepl() function to identify the locations where the meanFrequency() text appears in the "features" data, these should be excluded
 feature_selector <- has_mean_std & !has_meanFreq
